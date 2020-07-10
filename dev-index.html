@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dev!</title>
+    <meta name="description" content="Immutable webapp.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+       <!-- environment variables -->
+       <script>
+       env = {
+           ENV_NAME: 'dev',
+           GIT_SHA: 'sha',
+           API_URL: 'api',
+           CREATED_AT: new Date().toISOString()
+       }
+       </script>
+
+       <!-- application binding -->
+       <app-root></app-root>
+
+   </body>
+</html>

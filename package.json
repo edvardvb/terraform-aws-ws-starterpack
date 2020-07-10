@@ -1,0 +1,43 @@
+{
+  "name": "immutable-webapp",
+  "version": "0.0.1",
+  "description": "En eksempel-app for immutable webapps",
+  "browser": "src/main.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development",
+    "upload-assets": "npm ci && npm run build && node upload-assets",
+    "deploy-test": "node deploy-env test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kleivane/immutable-webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kleivane/immutable-webapp/issues"
+  },
+  "homepage": "https://github.com/kleivane/immutable-webapp#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "aws-sdk": "^2.697.0",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "install": "^0.13.0",
+    "moment": "^2.24.0",
+    "npm": "^6.14.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "yaml-lint": "^1.2.4"
+  },
+  "dependencies": {
+    "@bekk/storybook": "^2.5.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.0.1"
+  }
+}
