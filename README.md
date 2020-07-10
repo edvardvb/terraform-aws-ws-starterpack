@@ -24,6 +24,7 @@ Basert på @kleivane's workshop: https://github.com/kleivane/terraform-aws-ws/
 
 * Kjør opp appen med `npm install && npm run start`
 * Gjør deg kjent med hvor de forskjellige inputene og env-variablene i appen kommer fra (sjekk `dev-index.html`, `deploy-env.js` og `upload-assets.js`)
+* Gjør deg klar for terraform-utvikling ved å kjøre `terraform init` inne i repoet.
 
 ## Min første webapp i skyen
 
@@ -43,6 +44,8 @@ underveis
 
 Opprett to [buckets](https://www.terraform.io/docs/providers/aws/r/s3_bucket.html) med terraform som skal bli der vi server asset og host. Start i `terraform/test/main.tf`. Husk at S3-bucketnavn må være unike innenfor en region!
 
+Når du mener `main.tf` inneholder riktig konfigurasjon kan du kjøre `terraform plan` for å se hvordan terraform tolker konfigurasjonen. Om du er fornøyd kjører du `terraform apply` for å iverksette konfigurasjonen i AWS.
+
 Noter denne terraform-outputen for begge buckets:
 * bucket_domain_name - denne lenken kan du bruke til å aksessere filene du har lastet opp
 * id - navnet på bucketen du har opprettet
@@ -56,7 +59,7 @@ Dersom du satte acl-parameteret på bøttene kan du fjerne det før dette steget
 
 Opprett bucketpolicies for begge bøttene ved å bruke [`aws_s3_bucket_policy`](https://www.terraform.io/docs/providers/aws/r/s3_bucket_policy.html). I policy-atributtet kan du bruke en [templatefile](https://www.terraform.io/docs/configuration/functions/templatefile.html) med fila `policy/public_bucket.json.tpl`. Denne trenger en variabel `bucket_arn`. Bruk atributtet fra bucketen for å sende inn rett arn.
 
-Se [policy.md](terraform/test/policy/policy.md) for en forklaring på innholdet i policyen.
+Se [policy.md](terraform/test/policy/policy.md) for en forklaring på innholdet i policyen. Husk å kjøre `terraform apply` for å iverksette endringene!
 
 
 ### npm run upload-assets
