@@ -10,15 +10,7 @@ Basert på @kleivane's workshop: https://github.com/kleivane/terraform-aws-ws/
 - Sjekk at `node` og `npm` er installert
 - `brew install awscli`
 - `brew install terraform`
-- Opprett en AWS-konto på https://aws.amazon.com/.
-    - Bruk Basic-versjonen
-    - Legg inn betalingskort <- følg med på kostnadene og husk å slette infrastrukturen som koster penger når dagen er ferdig
-    - Sjekk at du kommer inn på [S3](https://s3.console.aws.amazon.com/s3/home) uten å bli bedt om mer signup  
-- Opprett en ny bruker i [IAM](https://console.aws.amazon.com/iam/home?#/users).
-    - Add user: username `terraform` og access type `Programmatic access`
-    - Permissions: `Attach existing policies directly` og velg policyen med policy name `AdministratorAccess`
-    - Tags: name = `system` og value=`terraform`
-    - Etter Create,husk å last ned access-key og secret.
+- Hent brukeren for gruppa di i dokumentet som deles på Discord
 - Kjør kommandoen `aws configure` med ACCESS_KEY_ID og SECRET_ACCESS_KEY som du fikk fra brukeren over. Bruk region `eu-north-1`
     - Kommandoen `aws iam get-user` kan brukes som en ping og sjekk av alt ok!
     - Når vi senere skal bruke terraform til å sette opp vår infrastruktur, er det credentials konfigurert gjennom aws-cliet over som terraform også bruker som credentials
@@ -31,11 +23,11 @@ Basert på @kleivane's workshop: https://github.com/kleivane/terraform-aws-ws/
 ### Lokal oppstart
 
 * Kjør opp appen med `npm install && npm run start`
-* Gjør deg kjent med hvor de forskjellige inputene og env-variablene i appen kommer fra
+* Gjør deg kjent med hvor de forskjellige inputene og env-variablene i appen kommer fra (sjekk `dev-index.html`, `deploy-env.js` og `upload-assets.js`)
 
 ## Min første webapp i skyen
 
-Felles mål her er en webapp med to S3-buckets og et CDN foran som hoster index.html og kildekode.
+Felles mål her er en webapp med to S3-buckets hoster index.html og kildekode.
 
 Nyttige lenker:
 * Om du ikke er veldig kjent i aws-konsollen fra før, anbefaler jeg å sjekke ut de forskjellige servicene
@@ -86,7 +78,7 @@ Dersom du kjører `npm run deploy-test` med samme versjonsnummer en gang til, vi
 
 Prøv å gjør en endring i koden og deploy en ny versjon! Hvilket tall du velger spiller ingen rolle, men husk å oppdatere versjonen både i `upload-assets.js` og `deploy-env.js`
 
-Løsningsforslag i repoet frem til hit ligger under https://github.com/kleivane/immutable-webapp/tree/master/terraform/test-1 .
+Løsningsforslag i repoet frem til hit ligger under https://github.com/kleivane/immutable-webapp/tree/master/terraform/test-1. Forslaget er lagd for en større versjon av denne workshoppen, og inneholder nok en del du ikke trenger.
 
 ### Vil du fortsette mere?
 
