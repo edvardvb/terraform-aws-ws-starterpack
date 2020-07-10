@@ -1,6 +1,8 @@
 # Webapp i AWS med terraform
 En implementasjon av infratrukturen fra https://immutablewebapps.org/
 
+Basert på @kleivane's workshop: https://github.com/kleivane/terraform-aws-ws/
+
 
 ## Forberedelser
 
