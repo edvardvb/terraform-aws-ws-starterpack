@@ -24,7 +24,6 @@ Basert på @kleivane's workshop: https://github.com/kleivane/terraform-aws-ws/
 
 * Kjør opp appen med `npm install && npm run start`
 * Gjør deg kjent med hvor de forskjellige inputene og env-variablene i appen kommer fra (sjekk `dev-index.html`, `deploy-env.js` og `upload-assets.js`)
-* Gjør deg klar for terraform-utvikling ved å kjøre `terraform init` inne i repoet.
 
 ## Min første webapp i skyen
 
@@ -44,7 +43,7 @@ underveis
 
 Opprett to [buckets](https://www.terraform.io/docs/providers/aws/r/s3_bucket.html) med terraform som skal bli der vi server asset og host. Start i `terraform/test/main.tf`. Husk at S3-bucketnavn må være unike innenfor en region!
 
-Når du mener `main.tf` inneholder riktig konfigurasjon kan du kjøre `terraform plan` for å se hvordan terraform tolker konfigurasjonen. Om du er fornøyd kjører du `terraform apply` for å iverksette konfigurasjonen i AWS.
+Når du mener `main.tf` inneholder riktig konfigurasjon kan du først kjøre `terraform init` inne i `terraform/test` i repoet for å sette opp terraform. Deretter bruker du `terraform plan` for å se hvordan terraform tolker konfigurasjonen du har lagd. Om du er fornøyd kjører du `terraform apply` for å iverksette konfigurasjonen i AWS.
 
 Noter denne terraform-outputen for begge buckets:
 * bucket_domain_name - denne lenken kan du bruke til å aksessere filene du har lastet opp
@@ -69,7 +68,7 @@ Gjør endring i `upload-assets.js` og sett navn inn rett navn på bucket. Som ve
 
 ### npm run deploy-test
 
-Gjør endring i `deploy-env.js` og sett navn inn rett navn på bucket og rett url til assets-bucket. Som version kan du beholde 1 *eller* sette samme versjon som du gjorde i steget over. Kjør scriptet med `npm run deploy-test` og sjekk at du får den bygde `index.html` lastet opp i bøtta og public tilgjengelig på nett.
+Gjør endring i `deploy-env.js` og sett navn inn rett navn på bucket og rett url til assets-bucket (husk `https://`!). Som version kan du beholde 1 *eller* sette samme versjon som du gjorde i steget over. Kjør scriptet med `npm run deploy-test` og sjekk at du får den bygde `index.html` lastet opp i bøtta og public tilgjengelig på nett.
 
 Denne fila skal du nå kunne åpne fra bucketen og se appen :rocket:
 
@@ -85,7 +84,9 @@ Løsningsforslag i repoet frem til hit ligger under https://github.com/kleivane/
 
 ### Vil du fortsette mere?
 
-* Lag et prodmiljø ved å lage en ny host-bucket. Da kan den peke på en annen versjon av assets, og vipps har man to miljøer!
-* Trekk ut bygging av index.html til en lambda
+* Lag et prodmiljø ved å lage en ny host-bucket. 
+    * Trenger du noe mer oppsett for å skape et nytt miljø med egen deploy-funksjon?
+    * Hvor mange assets-buckets trenger du?
+* Legg til litt ekstra funksjonalitet med en AWS Lambda-funksjon for å hente data!
     * Lambdaen trenger kildekode i egen bucket
-    * Provisjoner lambda med terraform pr miljø og send inn versjon av kildekoden som skal brukes
+    * Provisjoner Lambda med terraform pr miljø og send inn versjon av kildekoden som skal brukes
