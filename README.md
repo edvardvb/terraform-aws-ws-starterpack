@@ -94,15 +94,3 @@ Løsningsforslag i repoet frem til hit ligger under https://github.com/kleivane/
 * Trekk ut bygging av index.html til en lambda
     * Lambdaen trenger kildekode i egen bucket
     * Provisjoner lambda med terraform pr miljø og send inn versjon av kildekoden som skal brukes
-
-
-# Notater
-
-## Lage Starterpack
-
-* Klone repoet git clone <ssh> starterpack
-* Slett .git-mappa
-* Slett stuff under terraform (behold test/main og test/output og test/policy)
-* Lag et nytt repo på github
-* Slett notatene her
-* Kjør git init, add, commit, push til nytt repo
