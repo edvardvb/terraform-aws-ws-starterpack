@@ -88,5 +88,8 @@ Løsningsforslag i repoet frem til hit ligger under https://github.com/kleivane/
     * Trenger du noe mer oppsett for å skape et nytt miljø med egen deploy-funksjon?
     * Hvor mange assets-buckets trenger du?
 * Legg til litt ekstra funksjonalitet med en AWS Lambda-funksjon for å hente data!
-    * Lambdaen trenger kildekode i egen bucket
-    * Provisjoner Lambda med terraform pr miljø og send inn versjon av kildekoden som skal brukes
+    * Vi har lagd en enkel funksjon som returnerer et tilfeldig tall.
+    * Du trenger å provisjonere en Lambda, en API Gateway og en bucket til å holde på kildekoden for Lambdaen
+    * Kanskje [denne guiden](https://learn.hashicorp.com/terraform/aws/lambda-api-gateway#making-changes-to-the-api-gateway-configuration) kan hjelpe?
+        * Den bruker AWS CLI til å legge til kildekode i bucket, kan du gjøre det med et NPM-script?
+    * Hvordan skal du få hentet og vist dette tallet på nettsiden din?
