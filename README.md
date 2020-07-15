@@ -33,8 +33,7 @@ Nyttige lenker:
 * Om du ikke er veldig kjent i aws-konsollen fra før, anbefaler jeg å sjekke ut de forskjellige servicene
 underveis
     - https://console.aws.amazon.com/s3
-    - https://console.aws.amazon.com/cloudfront
-    - https://console.aws.amazon.com/route53
+    - https://console.aws.amazon.com/lambda
 * [Terraform-docs](https://www.terraform.io/docs/providers/aws/r/s3_bucket.html)
 * [AWS-cli-docs](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
 
